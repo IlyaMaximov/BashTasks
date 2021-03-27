@@ -1,2 +1,5 @@
 *.csv
 ParallelDatasetProcessing/my_dataset/*
+*.json
+*.fastq
+*.tar.gz
