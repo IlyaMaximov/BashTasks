@@ -68,4 +68,3 @@ fi
 tar -czvf $dest_file_path.tar.gz $dest_file_path.fastq
 rm $dest_file_path.fastq
 
-
