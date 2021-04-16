@@ -1,18 +1,26 @@
 #!/bin/bash
 
-if [[ $# < 5 || $1 != "--worker_cnt" || $3 != "--dest_dir" ]]; then
+if [[ $# < 5 ]]; then
 	echo "Incorrect format or count of arguments"
 	exit
 fi
 
-worker_cnt=$2
-dest_dir=$4
 links="tmp_links.txt"
 
-while [ -n "$5" ]
-do
-echo $5 >> $links
-shift
+while [ $# -gt 0 ]; do
+	case "$1" in
+		--dest_dir)
+			dest_dir=$2
+			shift 2
+			;;
+		--worker_cnt)
+			worker_cnt=$2
+			shift 2
+			;;
+		*)
+			echo $1 >> $links
+			shift
+	esac
 done
 
 # $links = https://drive.google.com/uc?export=download&id=1EfRc2RLVdwWlXWz3nDIBEv_EvvOMd9ip
